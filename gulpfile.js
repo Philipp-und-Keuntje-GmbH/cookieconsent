@@ -81,6 +81,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('serve',function(){
+    gulp.watch(cssBuildFiles.concat(jsBuildFiles), ['build']);
     browserSync.init({
         open: true,
         startPath: '/demo/index.html',
