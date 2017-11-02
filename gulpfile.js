@@ -80,7 +80,7 @@ gulp.task('watch', function() {
   gulp.watch(cssBuildFiles.concat(jsBuildFiles), ['build']);
 });
 
-gulp.task('serve',function(){
+gulp.task('serve', ['build'], function(){
     gulp.watch(cssBuildFiles.concat(jsBuildFiles), ['build']);
     browserSync.init({
         open: true,
