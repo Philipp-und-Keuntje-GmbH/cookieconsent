@@ -9,6 +9,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var bump = require('gulp-bump');
 var yargs = require('yargs');
 var diff = require('gulp-diff');
+var browserSync = require('browser-sync').create();
 
 
 var buildFolder = './build';
@@ -77,6 +78,18 @@ gulp.task('build:release', function(callback) {
 
 gulp.task('watch', function() {
   gulp.watch(cssBuildFiles.concat(jsBuildFiles), ['build']);
+});
+
+gulp.task('serve',function(){
+    browserSync.init({
+        open: true,
+        startPath: '/demo/index.html',
+        notify: false,
+        port: 9000,
+        server: {
+            baseDir: ['.']
+        }
+    });
 });
 
 function _minify(opts) {
