@@ -16,7 +16,6 @@
 /* links that are direct decendants should be displayed as block */
 .cc-floating>.cc-link {
   margin-bottom: 1em;
-  color: #ffffff;
 }
 
 .cc-floating .cc-message {
@@ -44,7 +43,7 @@
 
 .cc-banner .cc-message {
   flex: 1;
-  color: #ffffff;
+  text-align: center;
 }
 
 /* COMPLIANCE BOX */

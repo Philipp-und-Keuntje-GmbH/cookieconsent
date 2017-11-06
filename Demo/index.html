@@ -9,25 +9,7 @@
     <header>
         <h1>Demosite</h1>
     </header>
-    <script src="../build/cookieconsent.min.js"></script>
-    <script>
-        window.cookieconsent.initialise({
-            container: document.getElementById("content"),
-            palette:{
-                popup: {background: "#888888"},
-                button: {background: "#b10036"},
-                highlight: {background:"#fff"},
-            },
-            revokable:true,
-            onStatusChange: function(status) {
-                console.log(this.hasConsented() ?
-                    'enable cookies' : 'disable cookies');
-            },
-            law: {
-                regionalLaw: false,
-            },
-            location: true,
-        });
-    </script>
+    <script src="../src/pukcookie.js"></script>
+
 </body>
 </html>
