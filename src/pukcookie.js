@@ -2,7 +2,7 @@ window.onload=function () {
     if(document.cookie.length !=0){
        document.getElementById('ok').style.visibility="hidden";
     }
-}
+};
 
 function  setCookiesValue() {
     var cookiesValue = "1" ;
