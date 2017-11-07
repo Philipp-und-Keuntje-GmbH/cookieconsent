@@ -1,3 +1,17 @@
+window.onload=function () {
+    if(document.cookie.length !=0){
+       document.getElementById('ok').style.visibility="hidden";
+    }
+}
+
+function  setCookiesValue() {
+    var cookiesValue = "1" ;
+    document.cookie = cookiesValue;
+    document.getElementById('ok').style.visibility="hidden";
+}
+
+
+
 var jsonObj = null;
 function getjson(){
     var xhr = new XMLHttpRequest();
