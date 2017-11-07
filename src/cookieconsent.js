@@ -201,7 +201,20 @@
       onInitialise: function(status) {},
       onStatusChange: function(status, chosenBefore) {},
       onRevokeChoice: function() {},
+        cookie: {
+            // This is the name of this cookie - you can ignore this
+            name: 'cookie_status',
 
+            // This is the url path that the cookie 'name' belongs to. The cookie can only be read at this location
+            path: '/',
+
+            // This is the domain that the cookie 'name' belongs to. The cookie can only be read on this domain.
+            //  - Guide to cookie domains - http://erik.io/blog/2014/03/04/definitive-guide-to-cookie-domains/
+            domain: '',
+
+            // The cookies expire date, specified in days (specify -1 for no expiry)
+            expiryDays: 365
+        },
       // each item defines the inner text for the element that it references
       content: {
         header: 'Cookies used on the website!',
