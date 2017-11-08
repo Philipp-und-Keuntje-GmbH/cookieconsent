@@ -1,9 +1,8 @@
 {
   "unicef":{
     "cookie":{
-      "acceptButton":"accept",
+      "acceptButton":"Accept",
       "dismissButton":"Ok",
-      "denyButton":"disagree",
       "link":{
         "text":"More Info",
         "href":"http://cookiesandyou.com"
@@ -19,10 +18,10 @@
       }
     },
     "donate":{
-      "copy": "",
-      "link":{
-        "text":"More Info",
-        "href":"http://cookiesandyou.com",
+      "copy": "And real Cookies can help to save children form starvation. Donate now!",
+      "logo":{
+        "src":"",
+        "href":"https://www.unicef.org",
         "target": "_blank"
       },
       "paypal": {
