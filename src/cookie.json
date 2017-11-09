@@ -1,12 +1,12 @@
 {
   "unicef":{
     "cookie":{
-      "acceptButton":"Accept",
+      "acceptButton":"Akzeptieren",
       "link":{
-        "text":"More Info",
-        "href":"http://cookiesandyou.com"
+        "text":"Datenschutz",
+        "href":"https://www.bfdi.bund.de/DE/Datenschutz/datenschutz-node.html"
       },
-      "copy" : "Cookies optimize your experience on this Website.",
+      "copy" : "Diese Website verwendet Cookies. Indem Sie die Website und ihre Angebote nutzen und weiter navigieren, akzeptieren sie die Cookies. Dies können sie in ihren Browsereinstellungen ändern",
       "close": "&#x274c",
       "cookieMeta":{
         "name":"pukcookie",
@@ -17,9 +17,9 @@
       }
     },
     "donate":{
-      "copy": "And real Cookies can help to save children form starvation. Donate now!",
+      "copy": "Nicht alles ist so leicht zu akzeptieren: Alle 10 Sekunden stirbt ein Kind an Folgen von Hunger. Helfen sie UNICEF dies zu ändern",
       "logo":{
-        "src":"",
+        "src":"/src/assets/unicef-logo-data.png",
         "href":"https://www.unicef.org"
       },
       "paypal" :"<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='24VQYTASKZJ54'><input type='image' src='https://www.sandbox.paypal.com/de_DE/DE/i/btn/btn_donate_LG.gif' border='0' name='submit' alt='Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.'><img alt='' border='0' src='https://www.sandbox.paypal.com/de_DE/i/scr/pixel.gif' width='1' height='1'></form>"

@@ -1,0 +1,47 @@
+body{
+    background-color:darkslategray;
+}
+.pc-wrapper{
+    display:none;
+    position: fixed;
+    bottom: 0;
+    height: 65px;
+    width:100%;
+    background-color: #ffffff;
+}
+
+.pc-message{
+    float:left;
+    width:60%;
+    margin-top: 15px;
+    margin-left:5%;
+    margin-right:15%;
+}
+.active{
+    display:block;
+}
+.pc-acceptbutton{
+    margin-top: 18px;
+    float:left;
+    margin-left:1%;
+}
+
+.cookie-accept-btn {
+    background-color: rgb(36, 92, 135);
+    perspective: none;
+    pointer-events: auto;
+    width: 141px;
+    height: 39px;
+    color: #ffffff;
+    margin-top:-5px;
+    font-size:16px;
+    float:left;
+    border-color: rgb(36,92,135);
+}
+
+.pc-link{
+    margin-top:23px;
+    float:left;
+    color: #aaaaaa;
+    text-decoration: none;
+}

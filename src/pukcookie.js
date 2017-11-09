@@ -35,8 +35,17 @@ function getjson() {
             }
         }
     };
-    xhr.open('GET', 'https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/cookie.json', true);
+    xhr.open('GET', 'http://localhost:9000/src/cookie.json', true);
     xhr.send();
+}
+function switchstatus(){
+    var cookie = document.getElementsByClassName("cookie");
+    console.log(cookie);
+    cookie.classList.remove("active");
+    var donate = document.getElementsByClassName("donate");
+    donate.classList.add("active");
+    var btn = document.getElementsByClassName("cookie-accept-btn");
+    btn.preventDefault();
 }
 
 function displaypopup() {
@@ -79,14 +88,15 @@ function displaypopup() {
 
     options.elements = {
         cookie:{
-            acceptButton: '<span class="pc-acceptbutton"><button>' + options.content.cookie.acceptButton + '</button></span>',
+            acceptButton: '<span class="pc-acceptbutton"><button class="cookie-accept-btn" onclick="switchstatus()">' + options.content.cookie.acceptButton + '</button></span>',
             dismissButton: '<span class="pc-dismissButton">' + options.content.cookie.dismissButton + '</span>',
-            textlink: '<span id="cookie:desc" class="pc-message">' + options.content.cookie.copy + '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.cookie.link.href + '" rel="noopener noreferrer nofollow" target="_blank">' + options.content.cookie.link.text + '</a></span>',
-            close: '<a aria-label="dismiss cookie message" role=button tabindex="0"  class="pc-btn pc-close">' + options.content.cookie.close + '</a>',
-            link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.cookie.link.href + '" target="_blank">' + options.content.cookie.link.text + '</a>'
+            text: '<span id="cookie:desc" class="pc-message">' + options.content.cookie.copy + '</span>',
+            link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.cookie.link.href + '" rel="noopener noreferrer nofollow" target="_blank">' + options.content.cookie.link.text + '</a>',
+            close: '<a aria-label="dismiss cookie message" role=button tabindex="0"  class="pc-btn pc-close">' + options.content.cookie.close + '</a>'
+            //link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.cookie.link.href + '" target="_blank">' + options.content.cookie.link.text + '</a>'
         },
         donate:{
-            copy: '<span class="pc-message"><button>' + options.content.donate.copy + '</button></span>',
+            copy: '<span class="pc-message">' + options.content.donate.copy + '</span>',
             logo: '<a href="' + options.content.donate.logohref + '" <img src="' + options.content.donate.logosrc + '" class="pc-logo/>'
         }
     };
@@ -95,22 +105,26 @@ function displaypopup() {
         var cont = document.body;
 
         //Appending the cookie notice on the body element
-        divCookie.className = "pc-cookie-wrapper";
+        divCookie.className = "pc-wrapper cookie active";
+        divCookie.innerHTML += options.elements.cookie.text;
+        divCookie.innerHTML += options.elements.cookie.link;
         divCookie.innerHTML += options.elements.cookie.acceptButton;
-        divCookie.innerHTML += options.elements.cookie.dismissButton;
-        divCookie.innerHTML += options.elements.cookie.textlink;
         cont.appendChild(divCookie);
     }
+
     function createdonatepopup(){
         var divDonate = document.createElement('div');
         var cont = document.body;
 
         //Appending the donate Popup
-        divDonate .className = "pc-donate-wrapper";
+        divDonate .className = "pc-wrapper donate ";
         divDonate.innerHTML += options.elements.donate.copy;
         divDonate.innerHTML += options.elements.donate.logo;
-        divDonate.innerHTML += options.elements.donate.paypal;
+        divDonate.innerHTML += options.content.donate.paypal;
+        cont.appendChild(divDonate);
     }
+    createcookiepupop();
+    createdonatepopup();
     
 
     /*function appendMarkup(markup) {
