@@ -1,15 +1,14 @@
-window.onload=function () {
-    if(document.cookie.length !=0){
-       document.getElementById('ok').style.visibility="hidden";
+window.onload = function () {
+    if (document.cookie.length != 0) {
+        document.getElementById('ok').style.visibility = "hidden";
     }
 };
 
-function  setCookiesValue() {
-    var cookiesValue = "1" ;
+function setCookiesValue() {
+    var cookiesValue = "1";
     document.cookie = cookiesValue;
-    document.getElementById('ok').style.visibility="hidden";
+    document.getElementById('ok').style.visibility = "hidden";
 }
-
 
 
 var jsonObj = null;
@@ -21,6 +20,7 @@ function getjson() {
             if (xhr.status === 200) {
                 jsonObj = JSON.parse(xhr.response);
                 displaypopup();
+                console.log()
             }
             else {
                 //make another ajax call to get the local json
@@ -58,34 +58,62 @@ function displaypopup() {
         },
 
         content: {
-            acceptButton: jsonObj.unicef.cookie.acceptButton,
-            dismissButton: jsonObj.unicef.cookie.dismissButton,
-            denyButton: jsonObj.unicef.cookie.denyButton,
-            link: {
-                text: jsonObj.unicef.cookie.link.text,
-                href: jsonObj.unicef.cookie.link.href
+            cookie: {
+                acceptButton: jsonObj.unicef.cookie.acceptButton,
+                dismissButton: jsonObj.unicef.cookie.dismissButton,
+                link: {
+                    text: jsonObj.unicef.cookie.link.text,
+                    href: jsonObj.unicef.cookie.link.href
+                },
+                copy: jsonObj.unicef.cookie.copy,
+                close: jsonObj.unicef.cookie.close
             },
-            copy: jsonObj.unicef.cookie.copy,
-            close: jsonObj.unicef.cookie.close,
-            cookieMeta: {
-                name: jsonObj.unicef.cookie.cookieMeta.name,
-                value: jsonObj.unicef.cookie.cookieMeta.value,
-                expiryDays: jsonObj.unicef.cookie.cookieMeta.expiryDays,
-                domain: jsonObj.unicef.cookie.cookieMeta.name.domain,
-                path: jsonObj.unicef.cookie.cookieMeta.name.path
+            donate: {
+                copy: jsonObj.unicef.donate.copy,
+                logosrc: jsonObj.unicef.donate.logo.src,
+                logohref: jsonObj.unicef.donate.logo.href,
+                paypal: jsonObj.unicef.donate.paypal
             }
-        },
-        elements: {
-            acceptbutton: '<span class="pc-acceptbutton">{{acceptButton}}</span>;',
-            dismissButton: '<span class="pc-dismissButton">{{dismissButton}}</span>',
-            textlink: '<span id="cookie:desc" class="cc-message">{{copy}} <a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="{{link.href}}" rel="noopener noreferrer nofollow" target="_blank">{{link.text}}</a></span>',
-            denyButton: '<a aria-label="dismiss cookie message" role=button tabindex="0" class="cp-btn cp-dismiss">{{denyButton}}</a>',
-            close: '<a aria-label="dismiss cookie message" role=button tabindex="0"  class="cc-btn cc-close">{{close}}</a>',
-            link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="cc-link" href="{{link.href}}" target="_blank">{{link.text}}</a>',
         }
     };
 
-    function appendMarkup(markup) {
+    options.elements = {
+        cookie:{
+            acceptButton: '<span class="pc-acceptbutton"><button>' + options.content.cookie.acceptButton + '</button></span>',
+            dismissButton: '<span class="pc-dismissButton">' + options.content.cookie.dismissButton + '</span>',
+            textlink: '<span id="cookie:desc" class="pc-message">' + options.content.cookie.copy + '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.cookie.link.href + '" rel="noopener noreferrer nofollow" target="_blank">' + options.content.cookie.link.text + '</a></span>',
+            close: '<a aria-label="dismiss cookie message" role=button tabindex="0"  class="pc-btn pc-close">' + options.content.cookie.close + '</a>',
+            link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.cookie.link.href + '" target="_blank">' + options.content.cookie.link.text + '</a>'
+        },
+        donate:{
+            copy: '<span class="pc-message"><button>' + options.content.donate.copy + '</button></span>',
+            logo: '<a href="' + options.content.donate.logohref + '" <img src="' + options.content.donate.logosrc + '" class="pc-logo/>'
+        }
+    };
+    function createcookiepupop(){
+        var divCookie = document.createElement('div');
+        var cont = document.body;
+
+        //Appending the cookie notice on the body element
+        divCookie.className = "pc-cookie-wrapper";
+        divCookie.innerHTML += options.elements.cookie.acceptButton;
+        divCookie.innerHTML += options.elements.cookie.dismissButton;
+        divCookie.innerHTML += options.elements.cookie.textlink;
+        cont.appendChild(divCookie);
+    }
+    function createdonatepopup(){
+        var divDonate = document.createElement('div');
+        var cont = document.body;
+
+        //Appending the donate Popup
+        divDonate .className = "pc-donate-wrapper";
+        divDonate.innerHTML += options.elements.donate.copy;
+        divDonate.innerHTML += options.elements.donate.logo;
+        divDonate.innerHTML += options.elements.donate.paypal;
+    }
+    
+
+    /*function appendMarkup(markup) {
         var opts = this.options;
         var div = document.createElement('div');
         var cont = (opts.container && opts.container.nodeType === 1) ? opts.container : document.body;
@@ -114,7 +142,7 @@ function displaypopup() {
         }
 
         return el;
-    }
+    }*/
 }
 
 (function (pc) {
