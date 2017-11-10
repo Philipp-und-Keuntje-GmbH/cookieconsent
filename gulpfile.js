@@ -11,7 +11,6 @@ var yargs = require('yargs');
 var diff = require('gulp-diff');
 var browserSync = require('browser-sync').create();
 
-
 var buildFolder = './build';
 var jsBuildFiles = [
   './src/cookieconsent.js'
@@ -22,6 +21,7 @@ var cssBuildFiles = [
   './src/styles/base.css',
   './src/styles/layout.css',
   './src/styles/media.css',
+    './src/styles/temp.css',
 
   // all theme files
   './src/styles/themes/*.css',
@@ -91,7 +91,8 @@ gulp.task('serve', ['build'], function(){
             baseDir: ['.']
         }
     });
+    gulp.watch([
+        buildFolder + '/cookieconsent.min.css',
+        buildFolder + '/cookieconsent.min.js'
+    ]).on('change', browserSync.reload);
 });
-
-function _minify(opts) {
-}
