@@ -15,11 +15,13 @@ body{
     width:60%;
     margin-top: 15px;
     margin-left:5%;
-    margin-right:15%;
+    margin-right:5%;
 }
+
 .active{
     display:block;
 }
+
 .pc-acceptbutton{
     margin-top: 18px;
     float:left;
@@ -28,6 +30,7 @@ body{
 
 .cookie-accept-btn {
     background-color: rgb(36, 92, 135);
+    border-color: rgb(36,92,135);
     perspective: none;
     pointer-events: auto;
     width: 141px;
@@ -36,7 +39,7 @@ body{
     margin-top:-5px;
     font-size:16px;
     float:left;
-    border-color: rgb(36,92,135);
+
 }
 
 .pc-link{
@@ -44,4 +47,9 @@ body{
     float:left;
     color: #aaaaaa;
     text-decoration: none;
+}
+
+.pc-donatebutton{
+    margin-top:18px;
+    display:block;
 }

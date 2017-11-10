@@ -20,7 +20,6 @@ function getjson() {
             if (xhr.status === 200) {
                 jsonObj = JSON.parse(xhr.response);
                 displaypopup();
-                console.log()
             }
             else {
                 //make another ajax call to get the local json
@@ -40,10 +39,9 @@ function getjson() {
 }
 function switchstatus(){
     var cookie = document.getElementsByClassName("cookie");
-    console.log(cookie);
-    cookie.classList.remove("active");
+    cookie[0].classList.remove("active");
     var donate = document.getElementsByClassName("donate");
-    donate.classList.add("active");
+    donate[0].classList.add("active");
     var btn = document.getElementsByClassName("cookie-accept-btn");
     btn.preventDefault();
 }
@@ -97,7 +95,8 @@ function displaypopup() {
         },
         donate:{
             copy: '<span class="pc-message">' + options.content.donate.copy + '</span>',
-            logo: '<a href="' + options.content.donate.logohref + '" <img src="' + options.content.donate.logosrc + '" class="pc-logo/>'
+            logo: '<a href="' + options.content.donate.logohref + '" <img src="' + options.content.donate.logosrc + '" class="pc-logo/>',
+            donatebutton: '<span class="pc-donatebutton"' + options.content.donate.paypal + '</span>'
         }
     };
     function createcookiepupop(){
