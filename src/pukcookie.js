@@ -1,16 +1,3 @@
-window.onload = function () {
-    if (document.cookie.length != 0) {
-        document.getElementById('ok').style.visibility = "hidden";
-    }
-};
-
-function setCookiesValue() {
-    var cookiesValue = "1";
-    document.cookie = cookiesValue;
-    document.getElementById('ok').style.visibility = "hidden";
-}
-
-
 var jsonObj = null;
 
 function getjson() {
@@ -37,25 +24,10 @@ function getjson() {
     xhr.open('GET', 'http://localhost:9000/src/cookie.json', true);
     xhr.send();
 }
-function switchstatus(){
-    var cookie = document.getElementsByClassName("cookie");
-    cookie[0].classList.remove("active");
-    var donate = document.getElementsByClassName("donate");
-    donate[0].classList.add("active");
-    var btn = document.getElementsByClassName("cookie-accept-btn");
-    btn.preventDefault();
-}
-
 function displaypopup() {
     var options = {
-
-        // if false, this prevents the popup from showing (useful for giving to control to another piece of code)
         enabled: true,
-
-        // optional (expecting a HTML element) if passed, the popup is appended to this element. default is `document.body`
         container: null,
-
-        // defaults cookie options - it is RECOMMENDED to set these values to correspond with your server
         cookieMeta: {
             name: jsonObj.unicef.cookie.cookieMeta.name,
             value: jsonObj.unicef.cookie.cookieMeta.value,
@@ -86,19 +58,22 @@ function displaypopup() {
 
     options.elements = {
         cookie:{
-            acceptButton: '<span class="pc-acceptbutton"><button class="cookie-accept-btn" onclick="switchstatus()">' + options.content.cookie.acceptButton + '</button></span>',
+            acceptButton: '<span class="pc-acceptbutton"><button class="cookie-accept-btn">' + options.content.cookie.acceptButton + '</button></span>',
             dismissButton: '<span class="pc-dismissButton">' + options.content.cookie.dismissButton + '</span>',
             text: '<span id="cookie:desc" class="pc-message">' + options.content.cookie.copy + '</span>',
             link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.cookie.link.href + '" rel="noopener noreferrer nofollow" target="_blank">' + options.content.cookie.link.text + '</a>',
-            close: '<a aria-label="dismiss cookie message" role=button tabindex="0"  class="pc-btn pc-close">' + options.content.cookie.close + '</a>'
-            //link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.cookie.link.href + '" target="_blank">' + options.content.cookie.link.text + '</a>'
+            close: '<a aria-label="dismiss cookie message" role=button tabindex="0"  class="pc-btn pc-close" onclick="closepopup()">' + options.content.cookie.close + '</a>'
         },
         donate:{
             copy: '<span class="pc-message">' + options.content.donate.copy + '</span>',
-            logo: '<a href="' + options.content.donate.logohref + '" <img src="' + options.content.donate.logosrc + '" class="pc-logo/>',
-            donatebutton: '<span class="pc-donatebutton"' + options.content.donate.paypal + '</span>'
+            logo: '<a href="' + options.content.donate.logohref + '"rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.donate.logosrc + '" class="pc-donatelogo"></a>',
+            donatebutton: '<div class="pc-donatebutton"' + options.content.donate.paypal + '</div>'
         }
     };
+    function setcookie(name,value,path,domain,expiryDays){
+        document.cookie = "name="+ name +" value="+ value +" path=" + path + " domain=" + domain + " expires=" + expiryDays;
+    }
+
     function createcookiepupop(){
         var divCookie = document.createElement('div');
         var cont = document.body;
@@ -118,44 +93,29 @@ function displaypopup() {
         //Appending the donate Popup
         divDonate .className = "pc-wrapper donate ";
         divDonate.innerHTML += options.elements.donate.copy;
-        divDonate.innerHTML += options.elements.donate.logo;
         divDonate.innerHTML += options.content.donate.paypal;
+        divDonate.innerHTML += options.elements.donate.logo;
+        divDonate.innerHTML += options.elements.cookie.close;
         cont.appendChild(divDonate);
     }
+
+    function switchstatus(){
+        var cookie = document.getElementsByClassName("cookie");
+        cookie[0].classList.remove("active");
+        var donate = document.getElementsByClassName("donate");
+        donate[0].classList.add("active");
+        var btn = document.getElementsByClassName("cookie-accept-btn");
+    }
+
+    function closepopup(){
+        var donate = document.getElementsByClassName("donate");
+        donate[0].classList.remove("active");
     createcookiepupop();
     createdonatepopup();
-    
+    var accBtn = document.getElementsByClassName("cookie-accept-btn");
+    accBtn.onclick(setcookie(options.cookieMeta.name ,options.cookieMeta.value, options.cookieMeta.path,options.cookieMeta.domain, options.cookieMeta.expiryDays),switchstatus());
+}
 
-    /*function appendMarkup(markup) {
-        var opts = this.options;
-        var div = document.createElement('div');
-        var cont = (opts.container && opts.container.nodeType === 1) ? opts.container : document.body;
-
-        div.innerHTML = markup;
-
-        var el = div.children[0];
-
-        el.style.display = 'none';
-
-        if (util.hasClass(el, 'cc-window') && cc.hasTransition) {
-            util.addClass(el, 'cc-invisible');
-        }
-
-        // save ref to the function handle so we can unbind it later
-        this.onButtonClick = handleButtonClick.bind(this);
-
-        el.addEventListener('click', this.onButtonClick);
-
-        if (opts.autoAttach) {
-            if (!cont.firstChild) {
-                cont.appendChild(el);
-            } else {
-                cont.insertBefore(el, cont.firstChild)
-            }
-        }
-
-        return el;
-    }*/
 }
 
 (function (pc) {

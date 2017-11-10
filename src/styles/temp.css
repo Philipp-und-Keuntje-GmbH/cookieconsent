@@ -15,7 +15,7 @@ body{
     width:60%;
     margin-top: 15px;
     margin-left:5%;
-    margin-right:5%;
+    margin-right:1%;
 }
 
 .active{
@@ -39,7 +39,7 @@ body{
     margin-top:-5px;
     font-size:16px;
     float:left;
-
+    cursor: pointer;
 }
 
 .pc-link{
@@ -50,6 +50,19 @@ body{
 }
 
 .pc-donatebutton{
-    margin-top:18px;
+    margin-top:23px;
     display:block;
+    float:left;
+}
+.pc-donatelogo{
+    width:70px;
+    height: 40px;
+    float:left;
+    margin-top: 15px;
+    margin-left: 1%
+}
+.pc-close{
+    cursor: pointer;
+    float: right;
+    margin-right: 2%;
 }
