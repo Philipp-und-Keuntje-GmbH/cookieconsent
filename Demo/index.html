@@ -2,14 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Demosite</title>
+    <title>Cookies for Good</title>
     <link href="../build/cookieconsent.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="../src/styles/temp.css">
 </head>
 <body>
     <header>
-        <h1>Demosite</h1>
+        <h1 style="text-align:center; color:white">Cookies for Good</h1>
     </header>
+    <div>
+        <img src="https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children.png">
+    </div>
     <script src="../src/pukcookie.js"></script>
+<script>
+    window.pukcookie.initialise({
+        content:{
+                acceptButton:"test"
+        }
+    });
+</script>
 </body>
 </html>
