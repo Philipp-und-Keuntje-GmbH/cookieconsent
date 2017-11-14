@@ -10,14 +10,18 @@
     <header>
         <h1 style="text-align:center; color:white">Cookies for Good</h1>
     </header>
-    <div>
+    <!--<div>
         <img src="https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children.png">
-    </div>
+    </div>-->
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     <script src="../src/pukcookie.js"></script>
 <script>
     window.pukcookie.initialise({
         content:{
-                acceptButton:"test"
+            acceptButton:"Akzeptieren",
+        },
+        cookieMeta:{
+            name:"Testing"
         }
     });
 </script>
