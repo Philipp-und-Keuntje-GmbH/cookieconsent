@@ -70,7 +70,8 @@ function displaypopup(user_options) {
                 logohref: jsonObj.unicef.donate.logo.href,
                 paypal: jsonObj.unicef.donate.paypalimg,
                 copyWindow: jsonObj.unicef.donate.window.copy,
-                placholderWindow:jsonObj.unicef.donate.window.placeholder
+                placeholderWindow:jsonObj.unicef.donate.window.placeholder,
+                successWindow:jsonObj.unicef.donate.success.text
         }
     };
     if (isPlainObject(user_options)) {
@@ -90,10 +91,11 @@ function displaypopup(user_options) {
             logo: '<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-donatelogo-popup"></a>',
             donatebutton: '<img class="pc-donatebuttonimg" src="' + options.content.paypal + '">',
             window:{
-                logo:'<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-donatelogo-window"></a>',
+                logo:'<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-windowlogo"></a>',
                 copy: '<div class="pc-message-window">' + options.content.copyWindow + '</div>',
-                submit: '<input type="text" placeholder="'+ options.content.placholderWindow+'" class="pc-input-window">',
-                paypalsmartbutton:'<div class="pc-paypal-window"></div>'
+                submit: '<input type="text" placeholder="'+ options.content.placeholderWindow+'" class="pc-input-window">',
+                paypalsmartbutton:'<div class="pc-paypal-window"></div>',
+                success:'<div class="pc-sucess-text">'+options.content.sucessWindow+ amount +'</div>'
             }
         }
     };
@@ -134,7 +136,7 @@ function displaypopup(user_options) {
         var layer = document.createElement('div');
         layer.className = "pc-disablingdiv";
         var donatewindow = document.createElement('div');
-        donatewindow.className = "pc-donatewindow";
+        donatewindow.className = "pc-window donate";
 
         // add a overlaywindow to the layer
         donatewindow.innerHTML += options.elements.donate.window.logo;
@@ -163,7 +165,6 @@ function displaypopup(user_options) {
                             transactions: [
                                 {
                                     amount: { total: amount, currency: 'EUR' }
-
                                 }
                             ]
                         }
@@ -171,7 +172,11 @@ function displaypopup(user_options) {
                 },
 
                 onAuthorize: function(data, actions) {
+                    console.log('onAuth');
                     return actions.payment.execute().then(function(payment) {
+                        console.log('then');
+
+                        removewindow("pc-window donate");
                         showendscreen(payment.payer.payer_info.first_name ,payment.transactions[0].amount.total);
                     });
                 }
@@ -194,6 +199,9 @@ function displaypopup(user_options) {
             });
         }
 
+    }
+    function removewindow(classname){
+        cont.removeChild(classname);
     }
     function acceptclick() {
         console.log("text");
@@ -232,9 +240,16 @@ function displaypopup(user_options) {
         var cookie = document.getElementsByClassName("cookie");
         cookie[0].classList.remove("active");
     }
-    function showendscreen(name, amount){
-        var copy = "Vielen Dank für deine Spende von "+ amount + "€ du bist toll, "+ name;
-        alert(copy);
+    function showendscreen(name, value){
+        console.log(name,value);
+        var success = document.createElement('div');
+        success.className("pc-window success");
+        amount = value;
+        success.innerHTML += options.elements.donate.window.logo;
+        success.innerHTML += options.elements.window.success;
+
+        cont.appendChild(success);
+        //var copy = "Vielen Dank für deine Spende von "+ amount + "€ du bist toll, "+ name;
     }
     //calling the functions to load html
     createcookiepopup();

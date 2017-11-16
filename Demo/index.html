@@ -10,12 +10,37 @@
     <header>
         <h1 style="text-align:center; color:white">Cookies for Good</h1>
     </header>
-    <!--<div>
-        <img src="https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children.png">
-    </div>-->
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="image_url" value="https://i.pinimg.com/736x/94/d4/c9/94d4c90934ffcfc00e48bcb01bae8d5a--unicef-logo-a-well.jpg">
+        <input type="hidden" name="hosted_button_id" value="JGB6CLUXU4Q7U">
+        <input type="image" src="https://www.sandbox.paypal.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+        <img alt="" border="0" src="https://www.sandbox.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+    </form>
+
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_self" class="paypalform">
+        <input type="hidden" name="cmd" value="_donations">
+        <input type="hidden" name="amount" value="4">
+        <input type="hidden" name="business" value="api@unicef.de">
+        <input type="hidden" name="currency_code" value="EUR">
+        <input type="hidden" name="return" value="https://google.com">
+        <input type="hidden" name="charset" value="utf-8">
+        <input type="hidden" name="item_name" value="Deutsches Komitee für UNICEF e.V.">
+        <input type="hidden" name="Verwendungszweck" value="Verwendungszweck 187">
+        <input type="hidden" name="lc" value="DE">
+        <input type="hidden" name="custom" value="Verwendungszweck:187">
+        <input type="hidden" name="image_url" value="https://i.pinimg.com/736x/94/d4/c9/94d4c90934ffcfc00e48bcb01bae8d5a--unicef-logo-a-well.jpg">
+        <input type="image" src="https://www.sandbox.paypal.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+        <img alt="" border="0" src="https://www.sandbox.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+    </form>
+
     <script src="../src/pukcookie.js"></script>
 <script>
+    var aaaaa= document.getElementsByName("paypalform");
+    aaaaa.addEventListener("click",function(){
+       document.open("","paypalwindow");
+    });
     window.pukcookie.initialise({
         content:{
             acceptButton:"Akzeptieren",

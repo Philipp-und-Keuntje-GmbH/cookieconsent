@@ -94,7 +94,7 @@ html,body{
     -o-transform: translate3d(0, 0, 0);
 }
 
-.pc-donatewindow{
+.pc-window{
     position: absolute;
     z-index:1001;
     top:30%;
@@ -105,7 +105,7 @@ html,body{
     text-align: center;
 }
 
-.pc-donatelogo-window{
+.pc-windowlogo{
     margin:10px auto;
     width:45%;
     height:20%;

@@ -27,6 +27,9 @@
       "window":{
         "copy":"Wie viel möchtest du spenden?",
         "placeholder":"0.00€"
+      },
+      "success":{
+        "text":"Vielen Dank für deine Spende in höhe von"
       }
     }
   }
