@@ -94,7 +94,13 @@ function displaypopup(user_options) {
                 logo:'<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-windowlogo"></a>',
                 copy: '<div class="pc-message-window">' + options.content.copyWindow + '</div>',
                 submit: '<input type="text" placeholder="'+ options.content.placeholderWindow+'" class="pc-input-window">',
-                paypalsmartbutton:'<div class="pc-paypal-window"></div>',
+                paypalsmartbutton:'<div class="pc-paypal-window">    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank">' +
+                '        <input type="hidden" name="cmd" value="_s-xclick">' +
+                '        <input type="hidden" name="image_url" value="https://i.pinimg.com/736x/94/d4/c9/94d4c90934ffcfc00e48bcb01bae8d5a--unicef-logo-a-well.jpg">' +
+                '        <input type="hidden" name="hosted_button_id" value="JGB6CLUXU4Q7U">' +
+                '        <input type="image" src="https://www.sandbox.paypal.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">' +
+                '        <img alt="" border="0" src="https://www.sandbox.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">' +
+                '    </form></div>',
                 success:'<div class="pc-sucess-text">'+options.content.sucessWindow+ amount +'</div>'
             }
         }
@@ -122,7 +128,7 @@ function displaypopup(user_options) {
         //Appending the donate Popup
         divDonate.className = "pc-wrapper donate ";
         divDonate.innerHTML += options.elements.donate.copy;
-        divDonate.innerHTML += options.elements.donate.donatebutton;
+        divDonate.innerHTML += options.elements.donate.window.paypalsmartbutton;
         divDonate.innerHTML += options.elements.donate.logo;
         divDonate.innerHTML += options.elements.cookie.close;
         cont.appendChild(divDonate);
@@ -136,7 +142,7 @@ function displaypopup(user_options) {
         var layer = document.createElement('div');
         layer.className = "pc-disablingdiv";
         var donatewindow = document.createElement('div');
-        donatewindow.className = "pc-window donate";
+        donatewindow.className = "pc-paypal-window";
 
         // add a overlaywindow to the layer
         donatewindow.innerHTML += options.elements.donate.window.logo;
@@ -146,42 +152,43 @@ function displaypopup(user_options) {
 
         //adding eventlistener
         donatebtn[0].addEventListener("click",closepopup);
-        donatebtn[0].addEventListener("click",function(){
-            cont.appendChild(layer);
-            cont.appendChild(donatewindow);
-            paypal.Button.render({
 
-                env: 'sandbox',
-
-                client: {
-                    sandbox:'AWsXtDKsAy3KSbrQ83zF0dSCLu2NtwBZVA4aRqtBPasNQmo40CLzcaI-NcX8-U3MSRyysXsd3jrigZVI'
-                },
-
-                commit: true,
-
-                payment: function(data, actions) {
-                    return actions.payment.create({
-                        payment: {
-                            transactions: [
-                                {
-                                    amount: { total: amount, currency: 'EUR' }
-                                }
-                            ]
-                        }
-                    });
-                },
-
-                onAuthorize: function(data, actions) {
-                    console.log('onAuth');
-                    return actions.payment.execute().then(function(payment) {
-                        console.log('then');
-
-                        removewindow("pc-window donate");
-                        showendscreen(payment.payer.payer_info.first_name ,payment.transactions[0].amount.total);
-                    });
-                }
-            }, '.pc-paypal-window');
-        });
+        // donatebtn[0].addEventListener("click",function(){
+        //     //cont.appendChild(layer);
+        //     //cont.appendChild(donatewindow);
+        //     paypal.Button.render({
+        //
+        //         env: 'sandbox',
+        //
+        //         client: {
+        //             sandbox:'AWsXtDKsAy3KSbrQ83zF0dSCLu2NtwBZVA4aRqtBPasNQmo40CLzcaI-NcX8-U3MSRyysXsd3jrigZVI'
+        //         },
+        //
+        //         commit: true,
+        //
+        //         payment: function(data, actions) {
+        //             return actions.payment.create({
+        //                 payment: {
+        //                     transactions: [
+        //                         {
+        //                             amount: { total: amount, currency: 'EUR' }
+        //                         }
+        //                     ]
+        //                 }
+        //             });
+        //         },
+        //
+        //         onAuthorize: function(data, actions) {
+        //             console.log('onAuth');
+        //             return actions.payment.execute().then(function(payment) {
+        //                 console.log('then');
+        //
+        //                 removewindow("pc-window donate");
+        //                 showendscreen(payment.payer.payer_info.first_name ,payment.transactions[0].amount.total);
+        //             });
+        //         }
+        //     }, '.pc-paypal-window');
+        // });
 
         function tbd(){
             //adding a Eventlistener to input field to override the

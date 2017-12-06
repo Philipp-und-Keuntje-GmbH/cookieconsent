@@ -125,5 +125,8 @@ html,body{
 }
 
 .pc-paypal-window{
-    margin-top:10%;
+    margin-top:23px;
+    display:block;
+    float:left;
+    cursor:pointer;
 }
