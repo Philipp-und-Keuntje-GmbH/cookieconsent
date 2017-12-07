@@ -67,11 +67,14 @@ function displaypopup(user_options) {
                 close: jsonObj.unicef.cookie.close,
                 copyDonate: jsonObj.unicef.donate.copy,
                 logosrc: jsonObj.unicef.donate.logo.src,
+                logosrcMini:jsonObj.unicef.donate.mini-src,
                 logohref: jsonObj.unicef.donate.logo.href,
                 paypal: jsonObj.unicef.donate.paypalimg,
                 copyWindow: jsonObj.unicef.donate.window.copy,
                 placeholderWindow:jsonObj.unicef.donate.window.placeholder,
-                successWindow:jsonObj.unicef.donate.success.text
+                successWindow:jsonObj.unicef.donate.success.text,
+                returntext:jsonObj.unicef.donate.returntext,
+                returnurl:jsonObj.unicef.donate.returnurl
         }
     };
     if (isPlainObject(user_options)) {
@@ -82,22 +85,30 @@ function displaypopup(user_options) {
         cookie: {
             acceptButton: '<span class="pc-acceptbutton"><button class="cookie-accept-btn">' + options.content.acceptButton + '</button></span>',
             dismissButton: '<span class="pc-dismissButton">' + options.content.dismissButton + '</span>',
-            text: '<span id="cookie:desc" class="pc-message-popup">' + options.content.copyCookie + '</span>',
+            text: '<span id="cookie-desc" class="pc-message-popup">' + options.content.copyCookie + '<a class="pc-cookie-info" href="'+ options.content.link.href + '">'+options.content.link.text +'</a> <button class="cookie-accept-btn">' + options.content.acceptButton + '</button></span>',
             link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.link.href + '" rel="noopener noreferrer nofollow" target="_blank">' + options.content.link.text + '</a>',
             close: '<a aria-label="dismiss cookie message" role=button tabindex="0"  class="pc-btn pc-close">' + options.content.close + '</a>'
         },
         donate: {
-            copy: '<span class="pc-message-popup">' + options.content.copyDonate + '</span>',
+            copy: '<span class="pc-message-popup">' + options.content.copyDonate +'</span>',
             logo: '<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-donatelogo-popup"></a>',
             donatebutton: '<img class="pc-donatebuttonimg" src="' + options.content.paypal + '">',
             window:{
                 logo:'<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-windowlogo"></a>',
                 copy: '<div class="pc-message-window">' + options.content.copyWindow + '</div>',
                 submit: '<input type="text" placeholder="'+ options.content.placeholderWindow+'" class="pc-input-window">',
-                paypalsmartbutton:'<div class="pc-paypal-window">    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank">' +
-                '        <input type="hidden" name="cmd" value="_s-xclick">' +
-                '        <input type="hidden" name="image_url" value="https://i.pinimg.com/736x/94/d4/c9/94d4c90934ffcfc00e48bcb01bae8d5a--unicef-logo-a-well.jpg">' +
-                '        <input type="hidden" name="hosted_button_id" value="JGB6CLUXU4Q7U">' +
+                paypalsmartbutton:'<div class="pc-paypal-window">    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="paypalform">' +
+                '        <input type="hidden" name="cmd" value="_donations">' +
+                '        <input type="hidden" name="amount" value="4">' +
+                '        <input type="hidden" name="business" value="api@unicef.de">' +
+                '        <input type="hidden" name="currency_code" value="EUR">' +
+                '        <input type="hidden" name="return" value="https://google.com">' +
+                '        <input type="hidden" name="charset" value="utf-8">' +
+                '        <input type="hidden" name="item_name" value="Deutsches Komitee für UNICEF e.V.">' +
+                '        <input type="hidden" name="item_number" value="144001">' +
+                '        <input type="hidden" name="cbt" value="Zurück zur Website">' +
+                '        <input type="hidden" name="lc" value="DE">' +
+                '        <input type="hidden" name="image_url" value="'+options.content.logosrc+'">' +
                 '        <input type="image" src="https://www.sandbox.paypal.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">' +
                 '        <img alt="" border="0" src="https://www.sandbox.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">' +
                 '    </form></div>',
@@ -113,8 +124,8 @@ function displaypopup(user_options) {
         //Appending the cookie notice on the body element
         divCookie.className = "pc-wrapper cookie active";
         divCookie.innerHTML += options.elements.cookie.text;
-        divCookie.innerHTML += options.elements.cookie.link;
-        divCookie.innerHTML += options.elements.cookie.acceptButton;
+        //divCookie.innerHTML += options.elements.cookie.link;
+        //divCookie.innerHTML += options.elements.cookie.acceptButton;
         cont.appendChild(divCookie);
 
         // Eventhandler on button
@@ -138,7 +149,7 @@ function displaypopup(user_options) {
         closebtn[0].addEventListener("click", closepopup);
 
         // creates a layer that locks the site for paypal
-        var donatebtn = document.getElementsByClassName("pc-donatebuttonimg");
+        //var donatebtn = document.getElementsByClassName("pc-donatebuttonimg");
         var layer = document.createElement('div');
         layer.className = "pc-disablingdiv";
         var donatewindow = document.createElement('div');
@@ -151,7 +162,7 @@ function displaypopup(user_options) {
         donatewindow.innerHTML += options.elements.donate.window.paypalsmartbutton;
 
         //adding eventlistener
-        donatebtn[0].addEventListener("click",closepopup);
+        //donatebtn[0].addEventListener("click",closepopup);
 
         // donatebtn[0].addEventListener("click",function(){
         //     //cont.appendChild(layer);

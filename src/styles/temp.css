@@ -14,12 +14,15 @@ html,body{
     background-color: #ffffff;
 }
 
-.pc-message-popup{
-    float:left;
-    width:60%;
+.pc-message-popup {
+    float: left;
+    width: 60%;
     margin-top: 15px;
-    margin-left:5%;
-    margin-right:8%;
+    margin-left: 5%;
+    margin-right: 8%;
+}
+#cookie-desc{
+    width:87%;
 }
 
 .active{
@@ -34,17 +37,16 @@ html,body{
 }
 
 .cookie-accept-btn {
-    background-color: rgb(36, 92, 135);
-    border-color: rgb(36,92,135);
+    background-color: #000000;
+    border-color: #000000;
     perspective: none;
     pointer-events: auto;
-    width: 141px;
-    height: 39px;
     color: #ffffff;
     margin-top:-5px;
+    margin-left:1%;
     font-size:16px;
-    float:left;
     cursor: pointer;
+    border-radius:0px;
 }
 
 .pc-link{

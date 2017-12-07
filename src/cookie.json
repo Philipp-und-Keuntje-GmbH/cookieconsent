@@ -1,12 +1,12 @@
 {
   "unicef":{
     "cookie":{
-      "acceptButton":"Akzeptieren",
+      "acceptButton":"OK",
       "link":{
-        "text":"Datenschutz",
+        "text":"Hinweisen zu Cookies",
         "href":"https://www.bfdi.bund.de/DE/Datenschutz/datenschutz-node.html"
       },
-      "copy" : "Diese Website verwendet Cookies. Indem Sie die Website und ihre Angebote nutzen und weiter navigieren, akzeptieren sie die Cookies. Dies können sie in ihren Browsereinstellungen ändern",
+      "copy" : "Diese Website verwendet Cookies. Durch Verwendung dieser Website ohne die Cookie-Einstellungen Ihres Browsers zu ändern stimmen sie der Verwendung der Cookies zu. Weitere Informationen finden Sie in unseren ",
       "close": "&#x274c",
       "cookieMeta":{
         "name":"pukcookie",
@@ -17,9 +17,10 @@
       }
     },
     "donate":{
-      "copy": "Nicht alles ist so leicht zu akzeptieren: Alle 10 Sekunden stirbt ein Kind an Folgen von Hunger. Helfen sie UNICEF dies zu ändern",
+      "copy": "Auf jeder Website gibt es Cookies - in vielen Ländern nicht einmal genug Brot. Unterstützen sue UNICEF, damit hungrige Kinder eine faire Chance bekommen.",
       "logo":{
         "src":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children.png",
+        "mini-src":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children-minified.png",
         "href":"https://www.unicef.org"
       },
       "paypalimg" :"https://www.sandbox.paypal.com/de_DE/DE/i/btn/btn_donate_LG.gif",
@@ -30,7 +31,9 @@
       },
       "success":{
         "text":"Vielen Dank für deine Spende in höhe von"
-      }
+      },
+      "returnurl":"https://www.google.com",
+      "returntext":"Zurück zur Website"
     }
   }
 }
