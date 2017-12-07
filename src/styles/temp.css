@@ -12,28 +12,29 @@ html,body{
     height: 65px;
     width:100%;
     background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+}
+
+.pc-wrapper.active{
+    display: flex;
+    opacity:1;
+    align-items: center;
+    justify-content: center;
 }
 
 .pc-message-popup {
     float: left;
     width: 60%;
-    margin-top: 15px;
-    margin-left: 5%;
-    margin-right: 8%;
+
 }
+
 #cookie-desc{
     width:87%;
 }
 
-.active{
-    display: block;
-    opacity:1;
-}
-
-.pc-acceptbutton{
-    margin-top: 18px;
-    float:left;
-    margin-left:1%;
+.pc-cookie-info{
+    color:#000000;
 }
 
 .cookie-accept-btn {
@@ -42,22 +43,19 @@ html,body{
     perspective: none;
     pointer-events: auto;
     color: #ffffff;
-    margin-top:-5px;
     margin-left:1%;
     font-size:16px;
     cursor: pointer;
-    border-radius:0px;
+    border-radius:0;
 }
 
 .pc-link{
-    margin-top:23px;
     float:left;
     color: #aaaaaa;
     text-decoration: none;
 }
 
 .pc-donatebuttonimg{
-    margin-top:23px;
     display:block;
     float:left;
     cursor:pointer;
@@ -67,7 +65,6 @@ html,body{
     width:70px;
     height: 40px;
     float:left;
-    margin-top: 15px;
     margin-left: 1%;
 }
 
