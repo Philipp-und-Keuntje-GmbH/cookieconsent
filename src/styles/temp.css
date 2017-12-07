@@ -1,7 +1,11 @@
-body{
+html,body{
     background-color:darkslategray;
+    margin:0;
+    width:100%;
+    height:100%;
 }
 .pc-wrapper{
+    opacity:0;
     display:none;
     position: fixed;
     bottom: 0;
@@ -10,16 +14,20 @@ body{
     background-color: #ffffff;
 }
 
-.pc-message{
-    float:left;
-    width:60%;
+.pc-message-popup {
+    float: left;
+    width: 60%;
     margin-top: 15px;
-    margin-left:5%;
-    margin-right:5%;
+    margin-left: 5%;
+    margin-right: 8%;
+}
+#cookie-desc{
+    width:87%;
 }
 
 .active{
-    display:block;
+    display: block;
+    opacity:1;
 }
 
 .pc-acceptbutton{
@@ -29,17 +37,16 @@ body{
 }
 
 .cookie-accept-btn {
-    background-color: rgb(36, 92, 135);
-    border-color: rgb(36,92,135);
+    background-color: #000000;
+    border-color: #000000;
     perspective: none;
     pointer-events: auto;
-    width: 141px;
-    height: 39px;
     color: #ffffff;
     margin-top:-5px;
+    margin-left:1%;
     font-size:16px;
-    float:left;
-
+    cursor: pointer;
+    border-radius:0px;
 }
 
 .pc-link{
@@ -49,7 +56,79 @@ body{
     text-decoration: none;
 }
 
-.pc-donatebutton{
-    margin-top:18px;
+.pc-donatebuttonimg{
+    margin-top:23px;
     display:block;
+    float:left;
+    cursor:pointer;
+}
+
+.pc-donatelogo-popup{
+    width:70px;
+    height: 40px;
+    float:left;
+    margin-top: 15px;
+    margin-left: 1%;
+}
+
+.pc-close{
+    cursor: pointer;
+    float: right;
+    margin-right: 2%;
+}
+
+.pc-disablingdiv{
+    background-color: rgba(0, 0, 0, 0.8);
+    background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.6) 1%, rgba(0,0,0,0.8) 100%);
+    background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.6) 1%, rgba(0,0,0,0.8) 100%);
+    background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.6) 1%, rgba(0,0,0,0.8) 100%);
+    background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.6) 1%, rgba(0,0,0,0.8) 100%);
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+}
+
+.pc-window{
+    position: absolute;
+    z-index:1001;
+    top:30%;
+    left:40%;
+    background:white;
+    width:230px;
+    height:30%;
+    text-align: center;
+}
+
+.pc-windowlogo{
+    margin:10px auto;
+    width:45%;
+    height:20%;
+}
+
+.pc-input-window {
+    border: solid 1px black;
+    margin-top: 10%;
+    width: 50%;
+    height: 12%;
+    font-size: 18px;
+    text-align: center;
+}
+
+.pc-message-window{
+    text-align:center;
+}
+
+.pc-paypal-window{
+    margin-top:23px;
+    display:block;
+    float:left;
+    cursor:pointer;
 }

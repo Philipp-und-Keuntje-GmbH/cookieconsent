@@ -1,57 +1,39 @@
 {
   "unicef":{
     "cookie":{
-      "acceptButton":"Akzeptieren",
+      "acceptButton":"OK",
       "link":{
-        "text":"Datenschutz",
+        "text":"Hinweisen zu Cookies",
         "href":"https://www.bfdi.bund.de/DE/Datenschutz/datenschutz-node.html"
       },
-      "copy" : "Diese Website verwendet Cookies. Indem Sie die Website und ihre Angebote nutzen und weiter navigieren, akzeptieren sie die Cookies. Dies können sie in ihren Browsereinstellungen ändern",
+      "copy" : "Diese Website verwendet Cookies. Durch Verwendung dieser Website ohne die Cookie-Einstellungen Ihres Browsers zu ändern stimmen sie der Verwendung der Cookies zu. Weitere Informationen finden Sie in unseren ",
       "close": "&#x274c",
       "cookieMeta":{
         "name":"pukcookie",
         "value":"1",
-        "expiryDays":"31",
-        "domain":"",
-        "path":"/"
-      }
-    },
-    "donate":{
-      "copy": "Nicht alles ist so leicht zu akzeptieren: Alle 10 Sekunden stirbt ein Kind an Folgen von Hunger. Helfen sie UNICEF dies zu ändern",
-      "logo":{
-        "src":"/src/assets/unicef-logo-data.png",
-        "href":"https://www.unicef.org"
-      },
-      "paypal" :"<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='24VQYTASKZJ54'><input type='image' src='https://www.sandbox.paypal.com/de_DE/DE/i/btn/btn_donate_LG.gif' border='0' name='submit' alt='Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.'><img alt='' border='0' src='https://www.sandbox.paypal.com/de_DE/i/scr/pixel.gif' width='1' height='1'></form>"
-    }
-  },
-  "brot":{
-    "cookie":{
-      "acceptButton":"accept",
-      "link":{
-        "text":"More Info",
-        "href":"http://cookiesandyou.com"
-      },
-      "copy" : "Cookies optimize your experience on this Website.",
-      "close": "&#x274c",
-      "cookie-meta":{
-        "name":"",
-        "value":"",
-        "expiryDays":"",
+        "expiryDays":31,
         "domain":"",
         "path":""
       }
     },
     "donate":{
-      "copy": "",
-      "link":{
-        "text":"More Info",
-        "href":"http://cookiesandyou.com",
-        "target": "_blank"
+      "copy": "Auf jeder Website gibt es Cookies - in vielen Ländern nicht einmal genug Brot. Unterstützen sue UNICEF, damit hungrige Kinder eine faire Chance bekommen.",
+      "logo":{
+        "src":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children.png",
+        "mini-src":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children-minified.png",
+        "href":"https://www.unicef.org"
       },
-      "paypal": {
-
-      }
+      "paypalimg" :"https://www.sandbox.paypal.com/de_DE/DE/i/btn/btn_donate_LG.gif",
+      "paypalid":"",
+      "window":{
+        "copy":"Wie viel möchtest du spenden?",
+        "placeholder":"0.00€"
+      },
+      "success":{
+        "text":"Vielen Dank für deine Spende in höhe von"
+      },
+      "returnurl":"https://www.google.com",
+      "returntext":"Zurück zur Website"
     }
   }
 }
