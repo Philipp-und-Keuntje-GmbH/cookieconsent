@@ -25,12 +25,12 @@ html,body{
 
 .pc-message-popup {
     float: left;
-    width: 60%;
-
+    width: 55%;
 }
 
 #cookie-desc{
     width:87%;
+    text-align: center;
 }
 
 .pc-cookie-info{
@@ -61,17 +61,32 @@ html,body{
     cursor:pointer;
 }
 
+.pc-button-wrapper{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pc-button-wrapper *{
+    margin-left:15px;
+}
+
+.paypalform{
+    margin:auto;
+}
+
 .pc-donatelogo-popup{
-    width:70px;
-    height: 40px;
+    width:100px;
     float:left;
     margin-left: 1%;
 }
-
+.pc-timer{
+    margin-left:3%;
+}
 .pc-close{
     cursor: pointer;
     float: right;
-    margin-right: 2%;
+    margin-left:1%;
 }
 
 .pc-disablingdiv{
