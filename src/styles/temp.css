@@ -9,23 +9,59 @@ html,body{
     display:none;
     position: fixed;
     bottom: 0;
-    height: 65px;
+    height: auto;
     width:100%;
+    padding: 20px 0;
     background-color: #ffffff;
     align-items: center;
     justify-content: center;
 }
-
 .pc-wrapper.active{
-    display: flex;
-    opacity:1;
-    align-items: center;
-    justify-content: center;
+     display: flex;
+     opacity:1;
+     align-items: center;
+     justify-content: center;
+ }
+/* to keep the Paypalbutton in place*/
+@media(max-width:925px){
+    .pc-timer{
+        display:none;
+    }
 }
 
+@media(max-width:768px) {
+    .pc-close{
+        position:absolute;
+        right: 10px;
+        top: 5px;
+        width:25px;
+    }
+    .pc-wrapper.donate.active{
+        /*height:160px;*/
+        display:block;
+        text-align:center;
+    }
+    .pc-button-wrapper{
+        flex-direction: row;
+        margin-top: 15px;
+    }
+    .pc-donatelogo-popup{
+        width:80px;
+    }
+    .pc-message-popup{
+        width:80%;
+        margin-right:3%;
+        display:inline-block;
+    }
+    .paypalform{
+        margin-top:20px;
+    }
+}
+
+
+
 .pc-message-popup {
-    float: left;
-    width: 55%;
+    margin-left:2%;
 }
 
 #cookie-desc{
@@ -49,11 +85,6 @@ html,body{
     border-radius:0;
 }
 
-.pc-link{
-    float:left;
-    color: #aaaaaa;
-    text-decoration: none;
-}
 
 .pc-donatebuttonimg{
     display:block;
@@ -72,7 +103,10 @@ html,body{
 }
 
 .paypalform{
-    margin:auto;
+    margin-left:1%;
+}
+.paypalform img{
+    display:none;
 }
 
 .pc-donatelogo-popup{
@@ -80,13 +114,13 @@ html,body{
     float:left;
     margin-left: 1%;
 }
+
 .pc-timer{
     margin-left:3%;
 }
 .pc-close{
-    cursor: pointer;
-    float: right;
     margin-left:1%;
+    cursor: pointer;
 }
 
 .pc-disablingdiv{

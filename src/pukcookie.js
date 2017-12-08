@@ -137,17 +137,19 @@ function displaypopup(user_options) {
     function createdonatepopup() {
         var divDonate = document.createElement('div');
         var buttonwrapper = document.createElement('div');
+        var iconwrapper = document.createElement('div');
 
         //Appending the donate Popup
         divDonate.className = "pc-wrapper donate ";
         buttonwrapper.className = "pc-button-wrapper";
 
+
         divDonate.innerHTML += options.elements.donate.copy;
         buttonwrapper.innerHTML += options.elements.donate.logo;
         buttonwrapper.innerHTML += options.elements.donate.logopaypal;
-        buttonwrapper.innerHTML += options.elements.donate.window.paypalbutton;
-        divDonate.appendChild(buttonwrapper);
 
+        divDonate.appendChild(buttonwrapper);
+        divDonate.innerHTML += options.elements.donate.window.paypalbutton;
         divDonate.innerHTML += options.elements.donate.timer;
         divDonate.innerHTML += options.elements.cookie.close;
 
@@ -231,7 +233,6 @@ function displaypopup(user_options) {
         cont.removeChild(classname);
     }
     function acceptclick() {
-        console.log("text");
         setcookie(options.cookieMeta.name, options.cookieMeta.value, options.cookieMeta.path, options.cookieMeta.domain, options.cookieMeta.expiryDays);
         switchstatus();
         //setTimeout(closepopup, 15000);
