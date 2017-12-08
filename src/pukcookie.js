@@ -65,12 +65,13 @@ function displaypopup(user_options) {
                 },
                 copyCookie: jsonObj.unicef.cookie.copy,
                 close: jsonObj.unicef.cookie.close,
-                timer:jsonObj.unicef.donate.timer,
+                timer:jsonObj.unicef.cookie.timer,
                 copyDonate: jsonObj.unicef.donate.copy,
                 logosrc: jsonObj.unicef.donate.logo.src,
                 logosrcMini:jsonObj.unicef.donate.logo.srcmini,
                 logohref: jsonObj.unicef.donate.logo.href,
-                paypal: jsonObj.unicef.donate.paypalimg,
+                paypalImg: jsonObj.unicef.donate.paypalimg,
+                paypalLink: jsonObj.unicef.donate.paypallink,
                 copyWindow: jsonObj.unicef.donate.window.copy,
                 placeholderWindow:jsonObj.unicef.donate.window.placeholder,
                 successWindow:jsonObj.unicef.donate.success.text,
@@ -88,18 +89,19 @@ function displaypopup(user_options) {
             dismissButton: '<span class="pc-dismissButton">' + options.content.dismissButton + '</span>',
             text: '<div id="cookie-desc" class="pc-message-popup">' + options.content.copyCookie + '<a class="pc-cookie-info" href="'+ options.content.link.href + '" target="_blank">'+options.content.link.text +'</a> <button class="cookie-accept-btn">' + options.content.acceptButton + '</button></div>',
             link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="pc-link" href="' + options.content.link.href + '" rel="noopener noreferrer nofollow" target="_blank">' + options.content.link.text + '</a>',
-            close: '<img aria-label="dismiss cookie message" role=button tabindex="0"  class="pc-btn pc-close"><img src="' + options.content.close + '"></a>'
+            close: '<img class="pc-close" src="' + options.content.close + '">'
         },
         donate: {
             copy: '<span class="pc-message-popup">' + options.content.copyDonate +'</span>',
             logo: '<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-donatelogo-popup"></a>',
+            logopaypal:'<a href="' + options.content.paypalLink + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.paypalImg + '" class="pc-donatelogo-popup"></a>',
             timer:'<img class="pc-timer" src="'+ options.content.timer +'">',
             donatebutton: '<img class="pc-donatebuttonimg" src="' + options.content.paypal + '">',
             window:{
                 logo:'<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-windowlogo"></a>',
                 copy: '<div class="pc-message-window">' + options.content.copyWindow + '</div>',
                 submit: '<input type="text" placeholder="'+ options.content.placeholderWindow+'" class="pc-input-window">',
-                paypalsmartbutton:'<div class="pc-paypal-window">    ' +
+                paypalbutton:
                 '<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="paypalform">' +
                 '        <input type="hidden" name="cmd" value="_s-xclick">'+
                 '        <input type="hidden" name="image_url" value="https://i.pinimg.com/736x/94/d4/c9/94d4c90934ffcfc00e48bcb01bae8d5a--unicef-logo-a-well.jpg">'+
@@ -112,8 +114,7 @@ function displaypopup(user_options) {
                 '        <input type="hidden" name="image_url" value="'+options.content.logosrcMini+'">' +
                 '        <input type="image" src="https://www.sandbox.paypal.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">' +
                 '        <img alt="" border="0" src="https://www.sandbox.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">' +
-                '    </form>' +
-                '</div>',
+                '    </form>' ,
                 success:'<div class="pc-sucess-text">'+options.content.sucessWindow+ amount +'</div>'
             }
         }
@@ -126,8 +127,6 @@ function displaypopup(user_options) {
         //Appending the cookie notice on the body element
         divCookie.className = "pc-wrapper cookie active";
         divCookie.innerHTML += options.elements.cookie.text;
-        //divCookie.innerHTML += options.elements.cookie.link;
-        //divCookie.innerHTML += options.elements.cookie.acceptButton;
         cont.appendChild(divCookie);
 
         // Eventhandler on button
@@ -137,13 +136,23 @@ function displaypopup(user_options) {
 
     function createdonatepopup() {
         var divDonate = document.createElement('div');
+        var buttonwrapper = document.createElement('div');
+        var iconwrapper = document.createElement('div');
 
         //Appending the donate Popup
         divDonate.className = "pc-wrapper donate ";
+        buttonwrapper.className = "pc-button-wrapper";
+
+
         divDonate.innerHTML += options.elements.donate.copy;
-        divDonate.innerHTML += options.elements.donate.logo;
-        divDonate.innerHTML += options.elements.donate.window.paypalsmartbutton;
+        buttonwrapper.innerHTML += options.elements.donate.logo;
+        buttonwrapper.innerHTML += options.elements.donate.logopaypal;
+
+        divDonate.appendChild(buttonwrapper);
+        divDonate.innerHTML += options.elements.donate.window.paypalbutton;
+        divDonate.innerHTML += options.elements.donate.timer;
         divDonate.innerHTML += options.elements.cookie.close;
+
         cont.appendChild(divDonate);
 
         //Buttonhandler for exit Button
@@ -224,7 +233,6 @@ function displaypopup(user_options) {
         cont.removeChild(classname);
     }
     function acceptclick() {
-        console.log("text");
         setcookie(options.cookieMeta.name, options.cookieMeta.value, options.cookieMeta.path, options.cookieMeta.domain, options.cookieMeta.expiryDays);
         switchstatus();
         //setTimeout(closepopup, 15000);
