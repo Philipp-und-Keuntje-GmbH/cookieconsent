@@ -235,7 +235,7 @@ function displaypopup(user_options) {
     function acceptclick() {
         setcookie(options.cookieMeta.name, options.cookieMeta.value, options.cookieMeta.path, options.cookieMeta.domain, options.cookieMeta.expiryDays);
         switchstatus();
-        //setTimeout(closepopup, 15000);
+        setTimeout(closepopup, 10000);
     }
 
     function setcookie(name, value, path, domain, expiryDays) {
