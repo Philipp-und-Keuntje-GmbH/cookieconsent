@@ -288,7 +288,11 @@ function displaypopup(user_options) {
     if (pc.hasInitialised) return;
 
     pc.initialise=function(user_options) {
-        if (!document.cookie) {
+        var checkcookie="CookieforGood";
+        if(user_options.cookieMeta.name){
+            checkcookie = user_options.cookieMeta.name;
+        }
+        if (document.cookie.search(checkcookie)) {
             getjson(user_options);
         }
     };
