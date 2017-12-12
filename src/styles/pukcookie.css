@@ -1,76 +1,84 @@
-html,body{
-    background-color:darkslategray;
-    margin:0;
-    width:100%;
-    height:100%;
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
-.pc-wrapper{
-    opacity:0;
-    display:none;
+
+.pc-wrapper {
+    font-family: "PT Sans";
+    font-size: 17px;
+    opacity: 0;
+    display: none;
     position: fixed;
     bottom: 0;
     height: auto;
-    width:100%;
+    width: 100%;
     padding: 20px 0;
-    background-color: #ffffff;
+    background-color: #000000;
     align-items: center;
     justify-content: center;
 }
-.pc-wrapper.active{
-     display: flex;
-     opacity:1;
-     align-items: center;
-     justify-content: center;
- }
+
+.pc-wrapper.active {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+}
+
 /* to keep the Paypalbutton in place*/
-@media(max-width:925px){
-    .pc-timer{
-        display:none;
+@media (max-width: 925px) {
+    .pc-timer {
+        display: none;
     }
 }
 
-@media(max-width:768px) {
-    .pc-close{
-        position:absolute;
+/* Media Queries for mobile*/
+@media (max-width: 768px) {
+    .pc-close {
+        position: absolute;
         right: 10px;
         top: 5px;
-        width:25px;
+        width: 25px;
     }
-    .pc-wrapper.donate.active{
-        /*height:160px;*/
-        display:block;
-        text-align:center;
+
+    .pc-wrapper.donate.active {
+        display: block;
+        text-align: center;
     }
-    .pc-button-wrapper{
+
+    .pc-button-wrapper {
         flex-direction: row;
         margin-top: 15px;
     }
-    .pc-donatelogo-popup{
-        width:80px;
+
+    .pc-donatelogo-popup {
+        width: 80px;
     }
-    .pc-message-popup{
-        width:80%;
-        margin-right:3%;
-        display:inline-block;
+
+    .pc-message-popup {
+        width: 80%;
+        margin-right: 3%;
+        display: inline-block;
     }
-    .paypalform{
-        margin-top:20px;
+
+    .paypalform {
+        margin-top: 20px;
     }
 }
-
-
-
+/* Texts in the Popup Message */
 .pc-message-popup {
-    margin-left:2%;
+    margin-left: 2%;
+    color: #ffffff;
 }
 
-#cookie-desc{
-    width:87%;
+#cookie-desc {
+    width: 87%;
     text-align: center;
 }
-
-.pc-cookie-info{
-    color:#000000;
+/*Info link for Cookies*/
+.pc-cookie-info {
+    color: #ffffff;
 }
 
 .cookie-accept-btn {
@@ -79,56 +87,59 @@ html,body{
     perspective: none;
     pointer-events: auto;
     color: #ffffff;
-    margin-left:1%;
-    font-size:16px;
+    margin-left: 1%;
+    font-size: 16px;
     cursor: pointer;
-    border-radius:0;
+    border-radius: 0;
 }
 
-
-.pc-donatebuttonimg{
-    display:block;
-    float:left;
-    cursor:pointer;
+.pc-donatebuttonimg {
+    display: block;
+    float: left;
+    cursor: pointer;
 }
 
-.pc-button-wrapper{
-    display:flex;
+/* Wrapper for the Paypal and Unicef Logos  */
+.pc-button-wrapper {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.pc-button-wrapper *{
-    margin-left:15px;
+.pc-button-wrapper * {
+    margin-left: 15px;
 }
 
-.paypalform{
-    margin-left:1%;
+.paypalform {
+    margin-left: 1%;
 }
-.paypalform img{
-    display:none;
+/* To remove a pixel displayed with the paypal button  */
+.paypalform img {
+    display: none;
 }
 
-.pc-donatelogo-popup{
-    width:100px;
-    float:left;
+.pc-donatelogo-popup {
+    width: 100px;
+    float: left;
     margin-left: 1%;
 }
 
-.pc-timer{
-    margin-left:3%;
+.pc-timer {
+    margin-left: 3%;
 }
-.pc-close{
-    margin-left:1%;
+
+.pc-close {
+    margin-left: 1%;
     cursor: pointer;
 }
 
-.pc-disablingdiv{
+/* This is for the disalbing Screen for an older layout
+.pc-disablingdiv {
     background-color: rgba(0, 0, 0, 0.8);
-    background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.6) 1%, rgba(0,0,0,0.8) 100%);
-    background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.6) 1%, rgba(0,0,0,0.8) 100%);
-    background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.6) 1%, rgba(0,0,0,0.8) 100%);
-    background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.6) 1%, rgba(0,0,0,0.8) 100%);
+    background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.6) 1%, rgba(0, 0, 0, 0.8) 100%);
+    background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.6) 1%, rgba(0, 0, 0, 0.8) 100%);
+    background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.6) 1%, rgba(0, 0, 0, 0.8) 100%);
+    background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.6) 1%, rgba(0, 0, 0, 0.8) 100%);
     position: absolute;
     z-index: 1000;
     top: 0;
@@ -142,21 +153,21 @@ html,body{
     -o-transform: translate3d(0, 0, 0);
 }
 
-.pc-window{
+.pc-window {
     position: absolute;
-    z-index:1001;
-    top:30%;
-    left:40%;
-    background:white;
-    width:230px;
-    height:30%;
+    z-index: 1001;
+    top: 30%;
+    left: 40%;
+    background: white;
+    width: 230px;
+    height: 30%;
     text-align: center;
 }
 
-.pc-windowlogo{
-    margin:10px auto;
-    width:45%;
-    height:20%;
+.pc-windowlogo {
+    margin: 10px auto;
+    width: 45%;
+    height: 20%;
 }
 
 .pc-input-window {
@@ -168,13 +179,14 @@ html,body{
     text-align: center;
 }
 
-.pc-message-window{
-    text-align:center;
+.pc-message-window {
+    text-align: center;
 }
 
-.pc-paypal-window{
-    margin-top:23px;
-    display:block;
-    float:left;
-    cursor:pointer;
+.pc-paypal-window {
+    margin-top: 23px;
+    display: block;
+    float: left;
+    cursor: pointer;
 }
+*/

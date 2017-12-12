@@ -11,14 +11,14 @@ function getjson(user_options) {
                 displaypopup(user_options);
             }
             else {
-                //make another ajax call to get the local json
+                //Fallback to the local json
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === XMLHttpRequest.DONE) {
                         jsonObj = JSON.parse(xhr.response);
                         displaypopup(user_options);
                     }
                 };
-                xhr.open('GET', 'http://localhost:9000/src/cookie.json'/*'https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/cookie.json'*/, true);
+                xhr.open('GET', 'https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/cookie.json', true);
                 xhr.send();
             }
         }
@@ -27,7 +27,9 @@ function getjson(user_options) {
     xhr.send();
 }
 
+//wrapping function after the
 function displaypopup(user_options) {
+    //function to load the data that is given in the intitialise function by the user
     function deepExtend(target, source) {
         for (var prop in source) {
             if (source.hasOwnProperty(prop)) {
@@ -83,6 +85,8 @@ function displaypopup(user_options) {
         deepExtend(options, user_options);
     }
 
+
+    // HTML Elements that are rendered later on
     options.elements = {
         cookie: {
             acceptButton: '<span class="pc-acceptbutton"><button class="cookie-accept-btn">' + options.content.acceptButton + '</button></span>',
@@ -120,13 +124,14 @@ function displaypopup(user_options) {
         }
     };
 
-
+    //function to render the html for the cookie notice
     function createcookiepopup() {
         var divCookie = document.createElement('div');
 
         //Appending the cookie notice on the body element
         divCookie.className = "pc-wrapper cookie active";
         divCookie.innerHTML += options.elements.cookie.text;
+        divCookie.innerHTML += options.elements.cookie.acceptButton;
         cont.appendChild(divCookie);
 
         // Eventhandler on button
@@ -134,10 +139,10 @@ function displaypopup(user_options) {
         accbtn[0].addEventListener("click", acceptclick);
     }
 
+    //function to render the html for the donate notice
     function createdonatepopup() {
         var divDonate = document.createElement('div');
         var buttonwrapper = document.createElement('div');
-        var iconwrapper = document.createElement('div');
 
         //Appending the donate Popup
         divDonate.className = "pc-wrapper donate ";
@@ -211,7 +216,7 @@ function displaypopup(user_options) {
         //         }
         //     }, '.pc-paypal-window');
         // });
-
+/*
         function tbd(){
             //adding a Eventlistener to input field to override the
             var submit = donatewindow.getElementsByClassName("pc-input-window");
@@ -227,15 +232,17 @@ function displaypopup(user_options) {
                 }
             });
         }
-
+*/
     }
+    /*
     function removewindow(classname){
         cont.removeChild(classname);
     }
+    */
     function acceptclick() {
         setcookie(options.cookieMeta.name, options.cookieMeta.value, options.cookieMeta.path, options.cookieMeta.domain, options.cookieMeta.expiryDays);
         switchstatus();
-        setTimeout(closepopup, 10000);
+        //setTimeout(closepopup, 10000);
     }
 
     function setcookie(name, value, path, domain, expiryDays) {
@@ -262,12 +269,14 @@ function displaypopup(user_options) {
         donate[0].classList.add("active");
     }
 
+    //function to shut down the the popup
     function closepopup() {
         var donate = document.getElementsByClassName("donate");
         donate[0].classList.remove("active");
         var cookie = document.getElementsByClassName("cookie");
         cookie[0].classList.remove("active");
     }
+    /*
     function showendscreen(name, value){
         console.log(name,value);
         var success = document.createElement('div');
@@ -277,8 +286,9 @@ function displaypopup(user_options) {
         success.innerHTML += options.elements.window.success;
 
         cont.appendChild(success);
-        //var copy = "Vielen Dank für deine Spende von "+ amount + "€ du bist toll, "+ name;
+        //var copy = "Vielen Dank für deine Spende von "+ amount + "€,  "+ name;
     }
+*/
     //calling the functions to load html
     createcookiepopup();
     createdonatepopup();
