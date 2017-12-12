@@ -18,7 +18,7 @@ function getjson(user_options) {
                         displaypopup(user_options);
                     }
                 };
-                xhr.open('GET', 'https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/cookie.json', true);
+                xhr.open('GET', 'http://localhost:9000/src/cookie.json'/*'https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/cookie.json'*/, true);
                 xhr.send();
             }
         }
