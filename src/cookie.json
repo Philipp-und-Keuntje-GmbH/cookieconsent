@@ -21,7 +21,7 @@
       "copy": "Auf jeder Website gibt es Cookies - in vielen Ländern nicht einmal genug Brot. Unterstützen sie UNICEF, damit hungrige Kinder eine faire Chance bekommen.",
       "logo":{
         "src":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children.png",
-        "srcmini":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children-minified.png",
+        "srcmini":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children-small.png",
         "href":"https://www.unicef.org"
       },
       "paypalimg" :"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/paypal_logo.png",
