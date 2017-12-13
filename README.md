@@ -25,4 +25,3 @@ You can also implement your own texts and Cookie Metainformation and other optio
 You can check texts that are changeable in the pukcookie.js under the variable options.
 
 We recommend to change the **returntext** and the **returnurl**, to the Information you want to be displayed at the end of the Paypal Workflow. 
-

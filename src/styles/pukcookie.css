@@ -4,6 +4,13 @@ html, body {
     height: 100%;
     background-color: darkslategrey;
     font-family: "PT Sans";
+
+}
+.imgwrapper{
+    width:100%;
+}
+.imgwrapper.mobile{
+    display:none;
 }
 
 .pc-wrapper {
@@ -37,6 +44,12 @@ html, body {
 
 /* Media Queries for mobile*/
 @media (max-width: 768px) {
+    .imgwrapper{
+        display: none;
+    }
+    .imgwrapper.mobile{
+        display: block;
+    }
     .pc-close {
         position: absolute;
         right: 10px;
