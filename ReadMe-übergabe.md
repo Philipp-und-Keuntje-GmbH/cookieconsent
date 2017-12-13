@@ -1,0 +1,7 @@
+##COOKIES FOR GOOD
+This is a Prototype version, that is for used for potential customers to test this cookie notice. Because of that, the Paypalbutton is in Sandbox Mode and needs to be Replaced, before going in a productive enviroment. Furthermore the layout is only a mockup and will be changed in the future.
+
+At the moment the features  include a connection over a JSON-File from a [Github repository](https://github.com/Philipp-und-Keuntje-GmbH/cookieconsent). It also contains outsorced images. This repository is public accessible and can be updated by pushing a new commit in the master branch.
+The project contains two states. First the Cookie notice, where a Text with a acceptbutton is displayed. On click a cookie is set and the donate popup is visible. This Popup contains the texts with a logo and and a paypal donate button. This Button is configured has some parameters given with it. Read the [Documentation](https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/Appx_websitestandard_htmlvariables/) for further information.  
+
+Right now the project is in a github respository. Due to that is isn´t easy deployable. In order to make it easier deployable it should saved in a repository on gitlab. Moreover the code is designed to be used without html. Right now it consists of a CSS and JS file, and a script call. In the future the Cookie notice should be published as a Wordpress plugin. 

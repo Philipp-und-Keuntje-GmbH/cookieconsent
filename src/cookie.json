@@ -10,7 +10,7 @@
       "close": "https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/icon_close.png",
       "timer":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/icon_sand_clock.png",
       "cookieMeta":{
-        "name":"pukcookie",
+        "name":"CookieforGood",
         "value":"1",
         "expiryDays":31,
         "domain":"",

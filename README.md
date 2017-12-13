@@ -1,68 +1,28 @@
-[![Build Status](https://travis-ci.org/insites/cookieconsent.svg)](https://travis-ci.org/insites/cookieconsent)
-## What is Cookie Consent? 
+##Cookies for Good
 
-[Cookie Consent](https://cookieconsent.insites.com/) is a lightweight JavaScript plugin for alerting users about the use of cookies on your website.
+Cookies for Good is a Javascript based Cookie-Plugin. In advance to a Cookie notice it also displays an appeal to donate money for a good cause.
 
-It is designed to help you comply with the hideous EU Cookie Law and not make you want to kill yourself in the process. So we made it fast, free, and relatively painless.
+This Plugin is based on some functions of [Cookie Consent](https://cookieconsent.insites.com).
 
-## Version 3.0
-
-Version 3.0 is a complete rewrite from version 2. The most substantial new features are:
-
-- the ability to GeoLocate and only show the addon to people in the relevant countries
-- callback hooks for showing/accepting/revoking the banner
-- support for different types of compliance, giving you the flexibility to obey even the strictest cookie laws
-- easy no-fuss themes and customisable styles
-
-## Installation
-
-The easiest way to get up and running is to use our [wizard](https://cookieconsent.insites.com/download/). 
-
-You can also install this project through [npm](https://www.npmjs.com/):
-
-```sh
-npm install cookieconsent
+To use it implement the pukcookie.js and thepukcookie.css file into your Site.<br>Also call the initialise function in your Script:
+```html
+<script>
+    window.pukcookie.initialise({
+        content:{
+            acceptButton:"OK",
+            copyCookie:"Diese Website verwendet Cookies. Durch Verwendung dieser Website ohne die Cookie-Einstellungen Ihres Browsers zu ändern stimmen sie der Verwendung der Cookies zu. Weitere Informationen finden Sie in unseren ",
+            returnurl:"https://philippundkeuntje.de",
+            returntext:"Zurück zu Philipp und Keuntje"
+        },
+        cookieMeta:{
+            name:"Testing"
+        }
+    });
+</script>
 ```
 
-Or through [Bower](https://bower.io/):
+You can also implement your own texts and Cookie Metainformation and other options.
+You can check texts that are changeable in the pukcookie.js under the variable options.
 
-```sh
-bower install cookieconsent
-```
+We recommend to change the **returntext** and the **returnurl**, to the Information you want to be displayed at the end of the Paypal Workflow. 
 
-## Documentation 
-
-See our [full documentation](https://cookieconsent.insites.com/documentation/).
-
-## Contributing
-
-Feel free to improve the plugin and send us a pull request.  
-
-The easiest way to develop is to host the files with a local webserver. e.g. 
-
-```sh
-python -m SimpleHTTPServer
-```
-
-We use Gulp to compile the SCSS and minify the JavaScript. You can run a build with:
-
-```sh
-gulp build
-```
-
-## License
-
-Code released under the [MIT licence](http://opensource.org/licenses/MIT).
-
-## Credits
-
-Cookie Consent v3
-
-+ Alex Morley-Finch - JavaScript
-+ Piiu Pilt - JavaScript
-+ Oliver Emberton (@oliveremberton) - a couple of lines of CSS, maybe
-
-Cookie Consent v2
-
-+ David Ball (@drball) - CSS / themes
-+ Adam Hutchinson (@adjohu) - JavaScript
