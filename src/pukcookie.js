@@ -98,8 +98,8 @@ function displaypopup(user_options) {
         },
         donate: {
             copy: '<span class="pc-message-popup">' + options.content.copyDonate + '</span>',
-            logo: '<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-donatelogo-popup"></a>',
-            logopaypal: '<a href="' + options.content.paypalLink + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.paypalImg + '" class="pc-donatelogo-popup pc-paypal-logo"></a>',
+            logo: '<!--<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> --> <img src="' + options.content.logosrc + '" class="pc-donatelogo-popup"><!--</a>-->',
+            logopaypal: '<!--<a href="' + options.content.paypalLink + '" rel="noopener noreferrer nofollow" target="_blank"> --><img src="' + options.content.paypalImg + '" class="pc-donatelogo-popup pc-paypal-logo"><!--</a>-->',
             timer: '<img class="pc-timer" src="' + options.content.timer + '">',
             donatebutton: '<img class="pc-donatebuttonimg" src="' + options.content.paypal + '">',
             window: {
