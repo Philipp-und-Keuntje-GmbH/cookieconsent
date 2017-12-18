@@ -3,10 +3,10 @@
     "cookie":{
       "acceptButton":"OK",
       "link":{
-        "text":"Hinweisen zu Cookies.",
+        "text":"",
         "href":"https://www.bfdi.bund.de/DE/Datenschutz/datenschutz-node.html"
       },
-      "copy" : "Diese Website verwendet Cookies. Durch Verwendung dieser Website ohne die Cookie-Einstellungen Ihres Browsers zu ändern stimmen sie der Verwendung der Cookies zu. Weitere Informationen finden Sie in unseren ",
+      "copy" : "Diese Website verwendet Cookies. Durch Verwendung dieser Website ohne die Cookie-Einstellungen Ihres Browsers zu ändern stimmen sie der Verwendung der Cookies zu.",
       "close": "https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/icon_close.png",
       "timer":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/icon_sand_clock.png",
       "cookieMeta":{
