@@ -313,13 +313,14 @@ function displaypopup(user_options) {
     if (pc.hasInitialised) return;
 
     pc.initialise = function (user_options) {
-        var checkcookie = "CookieforGood";
-        if (user_options.cookieMeta.name) {
-            checkcookie = user_options.cookieMeta.name;
-        }
-        if (document.cookie.search(checkcookie)) {
-            getjson(user_options);
-        }
+        // var checkcookie = "CookieforGood";
+        // if (user_options.cookieMeta.name) {
+        //     checkcookie = user_options.cookieMeta.name;
+        // }
+        // if (document.cookie.search(checkcookie)) {
+        //     getjson(user_options);
+        // }
+        getjson(user_options);
     };
 
     // prevent this code from being run twice
