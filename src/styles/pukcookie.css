@@ -148,7 +148,7 @@ html, body {
 .pc-donatelogo-popup {
     width: 100px;
     float: left;
-    margin-left: 1%;
+    /*margin-left: 1%;*/
 }
 
 .pc-paypal-logo {
