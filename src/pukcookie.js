@@ -23,7 +23,7 @@ function getjson(user_options) {
             }
         }
     };
-    xhr.open('GET', 'https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/cookie.json', true);
+    xhr.open('GET', 'https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/cookie.json/src/cookie.json', true);
     xhr.send();
 }
 
@@ -99,7 +99,7 @@ function displaypopup(user_options) {
         donate: {
             copy: '<span class="pc-message-popup">' + options.content.copyDonate + '</span>',
             logo: '<a href="' + options.content.logohref + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.logosrc + '" class="pc-donatelogo-popup"></a>',
-            logopaypal: '<a href="' + options.content.paypalLink + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.paypalImg + '" class="pc-donatelogo-popup"></a>',
+            logopaypal: '<a href="' + options.content.paypalLink + '" rel="noopener noreferrer nofollow" target="_blank"> <img src="' + options.content.paypalImg + '" class="pc-donatelogo-popup pc-paypal-logo"></a>',
             timer: '<img class="pc-timer" src="' + options.content.timer + '">',
             donatebutton: '<img class="pc-donatebuttonimg" src="' + options.content.paypal + '">',
             window: {
@@ -243,7 +243,7 @@ function displaypopup(user_options) {
     function acceptclick() {
         setcookie(options.cookieMeta.name, options.cookieMeta.value, options.cookieMeta.path, options.cookieMeta.domain, options.cookieMeta.expiryDays);
         switchstatus();
-        setTimeout(closepopup, 10000);
+        setTimeout(closepopup, 15000);
         var hourglass = document.getElementsByClassName("pc-timer");
         fadeOut(hourglass[0]);
     }
@@ -256,7 +256,7 @@ function displaypopup(user_options) {
             }
             image.style.opacity = opacity;
             opacity -= 0.1;
-        }, 1000);
+        }, 1500);
     }
 
     function setcookie(name, value, path, domain, expiryDays) {

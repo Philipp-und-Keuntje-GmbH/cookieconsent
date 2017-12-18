@@ -6,11 +6,13 @@ html, body {
     font-family: "PT Sans";
 
 }
-.imgwrapper{
-    width:100%;
+
+.imgwrapper {
+    width: 100%;
 }
-.imgwrapper.mobile{
-    display:none;
+
+.imgwrapper.mobile {
+    display: none;
 }
 
 .pc-wrapper {
@@ -44,12 +46,14 @@ html, body {
 
 /* Media Queries for mobile*/
 @media (max-width: 768px) {
-    .imgwrapper{
+    .imgwrapper {
         display: none;
     }
-    .imgwrapper.mobile{
+
+    .imgwrapper.mobile {
         display: block;
     }
+
     .pc-close {
         position: absolute;
         right: 10px;
@@ -81,6 +85,7 @@ html, body {
         margin-top: 20px;
     }
 }
+
 /* Texts in the Popup Message */
 .pc-message-popup {
     margin-left: 2%;
@@ -91,6 +96,7 @@ html, body {
     width: 87%;
     text-align: center;
 }
+
 /*Info link for Cookies*/
 .pc-cookie-info {
     color: #000000;
@@ -127,10 +133,13 @@ html, body {
 
 .paypalform {
     margin-left: 1%;
+    margin-top: 10px;
 }
-.paypalform input{
+
+.paypalform input {
     cursor: pointer;
 }
+
 /* To remove a pixel displayed with the paypal button  */
 .paypalform img {
     display: none;
@@ -140,6 +149,10 @@ html, body {
     width: 100px;
     float: left;
     margin-left: 1%;
+}
+
+.pc-paypal-logo {
+    width: 75px;
 }
 
 .pc-timer {
