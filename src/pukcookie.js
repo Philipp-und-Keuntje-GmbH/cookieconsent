@@ -18,7 +18,9 @@ function getjson(user_options) {
                         displaypopup(user_options);
                     }
                 };
-                xhr.open('GET', 'https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/lanweiledichnicht.json', true);
+                xhr.open('GET', 'https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/blob/langweiledichnicht-MASTER/src/langweiledichnicht.json', true);
+
+
                 xhr.send();
             }
         }
