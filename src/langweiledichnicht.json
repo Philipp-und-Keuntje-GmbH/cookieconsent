@@ -26,6 +26,7 @@
       },
       "paypalimg" :"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/paypal_logo.png",
       "paypallink":"https://www.paypal.com",
+      "paypalbuttonimg" :"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/btn_donate_LG.gif",
       "window":{
         "copy":"Wie viel möchtest du spenden?",
         "placeholder":"0.00€"
