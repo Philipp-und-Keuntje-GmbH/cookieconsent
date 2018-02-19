@@ -24,9 +24,9 @@
         "srcmini":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children-small.png",
         "href":"https://www.unicef.org"
       },
-      "paypalimg" :"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/paypal_logo.png",
+      "paypalimg" :"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/payment_logos.png",
       "paypallink":"https://www.unicef.de/spenden/jetzt-spenden?utm_source=cookiesforhelp&utm_medium=cookiesforhelpfooter&utm_campaign=blogger",
-      "paypalbuttonimg" :"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/btn_donate_LG.gif",
+      "paypalbuttonimg" :"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/btn_jetzt_spenden_blau.png",
       "window":{
         "copy":"Wie viel möchtest du spenden?",
         "placeholder":"0.00€"
