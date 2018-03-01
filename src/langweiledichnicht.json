@@ -18,7 +18,7 @@
       }
     },
     "donate":{
-      "copy": "Auf jeder Website gibt es Cookies - in vielen Ländern nicht einmal genug Brot.<br>Unterstützen sie UNICEF und helfen Sie hungrigen Kindern.",
+      "copy": "Auf jeder Website gibt es Cookies - in vielen Ländern nicht einmal genug Brot. <br>Unterstützen sie UNICEF und helfen Sie hungrigen Kindern.",
       "logo":{
         "src":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children-small.png",
         "srcmini":"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/Unicef-Logo-children-small.png",
@@ -27,6 +27,7 @@
       "paypalimg" :"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/payment_logos.png",
       "paypallink":"https://www.unicef.de/spenden/jetzt-spenden?utm_source=cookiesforhelp&utm_medium=cookiesforhelpfooter&utm_campaign=blogger",
       "paypalbuttonimg" :"https://raw.githubusercontent.com/Philipp-und-Keuntje-GmbH/cookieconsent/master/src/assets/btn_jetzt_spenden_blau.png",
+      "paypalbutton" :"JETZT SPENDEN",
       "window":{
         "copy":"Wie viel möchtest du spenden?",
         "placeholder":"0.00€"
